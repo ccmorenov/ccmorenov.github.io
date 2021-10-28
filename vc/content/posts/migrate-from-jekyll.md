@@ -116,6 +116,7 @@ Jekyll's plugin:
 is written as this Hugo shortcode:
 
     <!-- image -->
+    {% raw %}
     <figure {{ with .Get "class" }}class="{{.}}"{{ end }}>
         {{ with .Get "link"}}<a href="{{.}}">{{ end }}
             <img src="{{ .Get "src" }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} />
@@ -126,7 +127,6 @@ is written as this Hugo shortcode:
             {{ if or (.Get "caption") (.Get "attr")}}<p>
             {{ .Get "caption" }}
             {{ with .Get "attrlink"}}<a href="{{.}}"> {{ end }}
-                {% raw %}
                 {{ .Get "attr" }}
             {{ if .Get "attrlink"}}</a> {{ end }}
             </p> {{ end }}
